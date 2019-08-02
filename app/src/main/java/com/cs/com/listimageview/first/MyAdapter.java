@@ -1,4 +1,4 @@
-package com.cs.com.listimageview;
+package com.cs.com.listimageview.first;
 
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.cs.com.listimageview.R;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class MyAdapter extends BaseMultiItemQuickAdapter<MultipleItem, BaseViewH
             case MultipleItem.TYPE1:
 
                 Glide.with(mContext).load(url.get(0)).into((ImageView) helper.getView(R.id.iv_type1_item1));
+                helper.setText(R.id.tv_type1_text,item.getBean().getDesc());
 
                 break;
             case MultipleItem.TYPE2:

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".first.MainActivity">
 
     <TextView
         android:id="@+id/tv_test1"
@@ -24,6 +24,8 @@
 
         />
     <android.support.v7.widget.RecyclerView
+        android:clipToPadding="false"
+        android:paddingTop="30dp"
         android:id="@+id/rl_test1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

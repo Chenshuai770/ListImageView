@@ -1,4 +1,4 @@
-package com.cs.com.listimageview;
+package com.cs.com.listimageview.first;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.cs.com.listimageview.R;
 import com.google.gson.Gson;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.model.Response;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
