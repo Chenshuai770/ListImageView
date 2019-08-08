@@ -24,13 +24,19 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".second.SecondActivity">
-          <!--  <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-        <activity android:name=".ThreeActivity">
+        <activity android:name=".three.ThreeActivity">
+
+        </activity>
+        <activity android:name=".four.activity.FourActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_banner"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+
+    <!-- 轮播图区域 -->
+
+    <!-- 轮播图对应的标题 -->
+    <EditText
+        android:id="@+id/et_home_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:lines="1"
+        android:ellipsize="end"
+        />
+
+</LinearLayout>

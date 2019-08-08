@@ -1,4 +1,4 @@
-package com.cs.com.listimageview;
+package com.cs.com.listimageview.three;
 
 import android.content.Context;
 import android.os.Handler;
@@ -20,9 +20,7 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.RecyclablePagerAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
-import com.alibaba.android.vlayout.layout.FixAreaAdjuster;
 import com.alibaba.android.vlayout.layout.FixLayoutHelper;
-import com.alibaba.android.vlayout.layout.FloatLayoutHelper;
 import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.alibaba.android.vlayout.layout.OnePlusNLayoutHelper;
@@ -30,6 +28,7 @@ import com.alibaba.android.vlayout.layout.OnePlusNLayoutHelperEx;
 import com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper;
 import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 import com.blankj.utilcode.util.ConvertUtils;
+import com.cs.com.listimageview.R;
 
 import java.util.LinkedList;
 import java.util.List;

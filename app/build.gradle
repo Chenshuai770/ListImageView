@@ -37,6 +37,9 @@ dependencies {
     implementation('com.alibaba.android:vlayout:1.2.8@aar') {
         transitive = true
     }
+
     implementation 'com.blankj:utilcode:1.25.5'
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
 
 }
