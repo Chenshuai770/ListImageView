@@ -42,4 +42,7 @@ dependencies {
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
 
+    //导航
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+
 }

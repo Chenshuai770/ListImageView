@@ -9,35 +9,23 @@ import android.widget.TextView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.cs.com.listimageview.R;
-import com.cs.com.listimageview.four.bean.HomeBean;
-
-import java.util.List;
 
 /**
  * Created by HaiyuKing
  * Used 通栏布局——轮播图
  */
-public class HomeTitleLayoutAdapter extends DelegateAdapter.Adapter{
+public class HomeHeaderLayoutAdapter extends DelegateAdapter.Adapter{
 
 	private Context mContext;
 	private LayoutHelper mLayoutHelper;
 	private String mItemBeanList;
 	private int mCount = 1;
-	private VirtualLayoutManager.LayoutParams mLayoutParams;
 
-	public HomeTitleLayoutAdapter(Context context, LayoutHelper layoutHelper, String datas){
+	public HomeHeaderLayoutAdapter(Context context, LayoutHelper layoutHelper, String datas){
 		this.mContext = context;
 		this.mLayoutHelper = layoutHelper;
 		this.mItemBeanList = datas;
-	}
-
-	public HomeTitleLayoutAdapter(Context mContext, LayoutHelper mLayoutHelper, String mItemBeanList, VirtualLayoutManager.LayoutParams mLayoutParams) {
-		this.mContext = mContext;
-		this.mLayoutHelper = mLayoutHelper;
-		this.mItemBeanList = mItemBeanList;
-		this.mLayoutParams = mLayoutParams;
 	}
 
 	@Override
@@ -47,13 +35,12 @@ public class HomeTitleLayoutAdapter extends DelegateAdapter.Adapter{
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		return new BannerViewHolder(LayoutInflater.from(mContext).inflate(R.layout.vlayout_adapter_item_title, parent, false));
+		return new BannerViewHolder(LayoutInflater.from(mContext).inflate(R.layout.vlayout_adapter_header, parent, false));
 	}
 
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-		BannerViewHolder bannerViewHolder = (BannerViewHolder)holder;
-		((BannerViewHolder) holder).mEtTitle.setHint(mItemBeanList);
+
 		
 	}
 
@@ -69,7 +56,7 @@ public class HomeTitleLayoutAdapter extends DelegateAdapter.Adapter{
 
 		public BannerViewHolder(View itemView) {
 			super(itemView);
-			mEtTitle = (TextView) itemView.findViewById(R.id.et_home_title);
+
 		}
 	}
 

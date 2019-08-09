@@ -2,21 +2,33 @@ package com.cs.com.listimageview.four.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
+import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.alibaba.android.vlayout.layout.ColumnLayoutHelper;
+import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
 import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.cs.com.listimageview.R;
 import com.cs.com.listimageview.first.MainActivity;
 import com.cs.com.listimageview.four.adapter.BannerLayoutAdapter;
+import com.cs.com.listimageview.four.adapter.HomeHeaderLayoutAdapter;
+import com.cs.com.listimageview.four.adapter.HomeNavigationAdapter;
 import com.cs.com.listimageview.four.adapter.HomeTitleLayoutAdapter;
+import com.cs.com.listimageview.four.adapter.SubAdapter;
 import com.cs.com.listimageview.four.bean.HomeBean;
+import com.cs.com.listimageview.three.ThreeActivity;
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -107,9 +119,25 @@ public class FourActivity extends AppCompatActivity {
                 //设置各个区域的复用池的大小，因为只有一个元素，所以复用池大小就设置为1
                 viewPool.setMaxRecycledViews(itemType++, 1);
                 Log.d("TTT", "itemType:" + itemType);
-                StickyLayoutHelper stickyLayoutHelper = new StickyLayoutHelper();
-                HomeTitleLayoutAdapter stickyTitleAdapter = new HomeTitleLayoutAdapter(this, stickyLayoutHelper, "我是高手");
+                StickyLayoutHelper stickyLayoutHelper1 = new StickyLayoutHelper();
+                VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(50));
+                HomeTitleLayoutAdapter stickyTitleAdapter = new HomeTitleLayoutAdapter(this, stickyLayoutHelper1, "我是高手",layoutParams);
+
                 adapters.add(stickyTitleAdapter);
+
+                viewPool.setMaxRecycledViews(itemType++,1);
+                ColumnLayoutHelper columnLayoutHelper = new ColumnLayoutHelper();
+                HomeHeaderLayoutAdapter columnAdapter = new HomeHeaderLayoutAdapter(this, columnLayoutHelper, "我是高手");
+                adapters.add(columnAdapter);
+
+                viewPool.setMaxRecycledViews(itemType++,1);
+                StickyLayoutHelper stickyLayoutHelper2 = new StickyLayoutHelper();
+                stickyLayoutHelper2.setOffset(layoutParams.height);
+                HomeNavigationAdapter navigationAdapter = new HomeNavigationAdapter(this, stickyLayoutHelper2, "我是高手");
+                adapters.add(navigationAdapter);
+
+                adapters.add(new SubAdapter(this, new LinearLayoutHelper(), 20));
+
             }
 
         }
@@ -153,4 +181,7 @@ public class FourActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }
