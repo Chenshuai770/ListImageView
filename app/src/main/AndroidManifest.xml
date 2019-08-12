@@ -33,15 +33,19 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".three.ThreeActivity">
-
-        </activity>
-        <activity android:name=".four.activity.FourActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".three.ThreeActivity"></activity>
+        <activity
+            android:name=".four.activity.FourActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".five.FiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".six.SixActivity">
+
         </activity>
     </application>
 
