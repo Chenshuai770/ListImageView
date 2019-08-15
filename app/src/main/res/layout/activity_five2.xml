@@ -27,14 +27,10 @@
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll" />
 
-            <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator3"
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tablayout"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp" />
-
+                android:layout_height="wrap_content" />
         </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout
