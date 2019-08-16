@@ -11,45 +11,72 @@
         android:layout_height="wrap_content"
         android:text="登录" />
 
-    <android.support.design.widget.CoordinatorLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:srlEnableFooterFollowWhenLoadFinished="true"
+        app:srlEnableScrollContentWhenLoaded="true"
+        >
 
-        <android.support.design.widget.AppBarLayout
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:layout_behavior="com.cs.com.listimageview.five.AppBarLayoutBehavior">
+            app:srlFinishDuration="300"
+            app:srlEnableLastTime="true"
+            app:srlClassicsSpinnerStyle="FixedBehind"
+            app:srlTextSizeTitle="16sp"
+            app:srlTextSizeTime="10dp"
+            app:srlTextTimeMarginTop="2dp"
+            app:srlDrawableArrowSize="20dp"
+            app:srlDrawableProgressSize="20dp"
+            app:srlDrawableMarginRight="20dp"
+            app:srlDrawableProgress="@drawable/ic_progress_puzzle"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recy"
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll" />
+                android:background="@android:color/white"
+                app:layout_behavior="com.cs.com.listimageview.five.AppBarLayoutBehavior">
 
-            <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator3"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll" />
+
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    android:id="@+id/magic_indicator3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp" />
+
+            </android.support.design.widget.AppBarLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp" />
+                android:layout_height="match_parent"
+                app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-        </android.support.design.widget.AppBarLayout>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            </RelativeLayout>
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        </android.support.design.widget.CoordinatorLayout>
 
-        </RelativeLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-    </android.support.design.widget.CoordinatorLayout>
+
 
 
 </LinearLayout>

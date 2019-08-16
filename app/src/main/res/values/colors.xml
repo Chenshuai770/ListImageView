@@ -9,4 +9,13 @@
     <color name="item_pressed_color">#CCCCCC</color>
     <color name="item_activated_color">#77CEEE</color>
 
+
+    <color name="colorTextTitle">#333333</color>
+    <color name="colorTextContent">#444444</color>
+    <color name="colorTextAssistant">#888888</color>
+
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorBackgroundDark">#f2f2f2</color>
+    <color name="colorDivision">#33aaaaaa</color>
+
 </resources>

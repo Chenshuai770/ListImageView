@@ -3,27 +3,20 @@ package com.cs.com.listimageview.five;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
-import com.alibaba.android.vlayout.VirtualLayoutManager;
-import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
-import com.blankj.utilcode.util.ConvertUtils;
 import com.cs.com.listimageview.R;
-import com.cs.com.listimageview.four.adapter.SubAdapter;
-import com.cs.com.listimageview.second.SecondAdapter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -39,9 +32,12 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class FiveActivity extends AppCompatActivity implements View.OnClickListener {
@@ -73,15 +69,29 @@ public class FiveActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final boolean SCROLL_FIX_LAYOUT = true;
     private TextView mFirstText;
+    private SmartRefreshLayout mRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five);
+
         initData();
         initView();
 
+
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(ReFreshEvent event) {/* Do something */};
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+
+    }
+
 
     private void initData() {
         titleList = new ArrayList<>();
@@ -110,13 +120,15 @@ public class FiveActivity extends AppCompatActivity implements View.OnClickListe
         mRlvFive.setLayoutManager(new LinearLayoutManager(this));
 
         mRlvFive.setAdapter(itemAdapter);
-        
-        
 
-        pageAdapter = new BaseViewPageAdapter(mDataList,pageList,getSupportFragmentManager());
+
+        pageAdapter = new BaseViewPageAdapter(mDataList, pageList, getSupportFragmentManager());
         mViewpager.setAdapter(pageAdapter);
         mLogin.setOnClickListener(this);
         initMagic6();
+        mRefreshLayout = (SmartRefreshLayout) findViewById(R.id.refreshLayout);
+        mRefreshLayout.setEnableLoadMore(false);
+
     }
 
     private void initMagic6() {
@@ -156,7 +168,7 @@ public class FiveActivity extends AppCompatActivity implements View.OnClickListe
                 // set badge position
                 if (index == 1) {
                     badgePagerTitleView.setXBadgeRule(new BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 15)));
-                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_TOP, -UIUtil.dip2px(context,10)));
+                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_TOP, -UIUtil.dip2px(context, 10)));
                 }
                 // don't cancel badge when tab selected
                 badgePagerTitleView.setAutoCancelBadge(false);
@@ -179,6 +191,9 @@ public class FiveActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login:
+
+                Log.d("FiveActivity", "ttt");
+                EventBus.getDefault().post(new ReFreshEvent(true));
 
                 break;
         }
